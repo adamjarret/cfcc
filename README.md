@@ -1,6 +1,7 @@
 # cfcc
 
 [![Package Version](https://badgen.net/npm/v/cfcc)](https://npmjs.com/package/cfcc)
+[![Install Size](https://badgen.net/packagephobia/install/cfcc)](https://packagephobia.now.sh/result?p=cfcc)
 
 A lightweight and hyper-focused node.js library and CLI utility for purging some (or all) files from a CloudFlare zone cache.
 
