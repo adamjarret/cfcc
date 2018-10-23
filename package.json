@@ -1,0 +1,38 @@
+{
+  "name": "cfcc",
+  "version": "0.9.0",
+  "description": "Purge files from a CloudFlare zone cache",
+  "main": "index.js",
+  "bin": "./bin/cli.js",
+  "scripts": {
+    "ig": "npm install -g file://.",
+    "lint": "eslint '**/*.js'",
+    "pack": "npm pack --dry-run",
+    "test": "npm run lint && spoon 'test/src/**/test.*.js'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adamjarret/cfcc.git"
+  },
+  "bugs": {
+    "url": "https://github.com/adamjarret/cfcc/issues"
+  },
+  "keywords": [
+    "cloudflare",
+    "cache",
+    "clear",
+    "purge",
+    "zone"
+  ],
+  "homepage": "https://github.com/adamjarret/cfcc",
+  "author": "Adam Jarret <adam@atj.me>",
+  "license": "MIT",
+  "dependencies": {
+    "minimist": "^1.2.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.7.0",
+    "spooning": "^1.1.0",
+    "spooning-cli": "^1.0.0"
+  }
+}
