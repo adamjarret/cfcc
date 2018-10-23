@@ -83,22 +83,22 @@ in CloudFlare API Documentation for request details.
 
 #### Example
 
-	const {purgeCache} = require('cfcc');
-		
-	const options = {
-		token: 'AUTH_TOKEN',
-		email: 'AUTH_EMAIL',
-		zone: 'ZONE_ID',
-		files: [
-			// If files is undefined or an empty array, all files are purged
-			'http://www.example.com/css/styles.css',
-			'http://www.example.com/js/bundle.js'
-		]
-	};
-	
-	purgeCache(options, (error, responseResult) => {
-		// responseResult is an object (parsed from JSON response)
-	});
+    const {purgeCache} = require('cfcc');
+    
+    const options = {
+        token: 'AUTH_TOKEN',
+        email: 'AUTH_EMAIL',
+        zone: 'ZONE_ID',
+        files: [
+            // If files is undefined or an empty array, all files are purged
+            'http://www.example.com/css/styles.css',
+            'http://www.example.com/js/bundle.js'
+        ]
+    };
+    
+    purgeCache(options, (error, responseResult) => {
+        // responseResult is an object (parsed from JSON response)
+    });
 	
 ### `purgeCacheOptions.fromFile(filePath)`
 
