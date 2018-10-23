@@ -30,7 +30,7 @@ Compatible with node 6 and later.
 Command line arguments take precedence over values loaded from a config file.
 
 A "config" property may be defined in a config file to extend the specified file and provide overrides.
-See the `purgeCacheOptions.fromFile` example below.
+See the [`purgeCacheOptions.fromFile` example](#example) below.
 
 Option keys can optionally be prefixed with `cloudflare_` which can be useful
 when loading a config file that is shared with other utilities.
