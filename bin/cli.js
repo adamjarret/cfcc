@@ -2,8 +2,14 @@
 /* eslint-disable no-console */
 
 const {collapsePrefix, purgeCache, purgeCacheOptions: {fromArgv}} = require('..');
+const {version} = require('../package.json');
 
 const options = collapsePrefix(fromArgv(process.argv.slice(2)));
+
+if(options.version) {
+    console.log(version);
+    process.exit(0);
+}
 
 purgeCache(options, (error, responseResult) => {
 
@@ -44,6 +50,7 @@ Usage: cfcc [options] [URL...]
 --email     account auth email
 --zone      zone id
 --config    load options from JSON file
+--version   show cfcc version and exit
 
 If no URLs are specified all files are purged.
 `);

@@ -25,6 +25,7 @@ Compatible with node 6 and later.
 	--email     account auth email
 	--zone      zone id
 	--config    load options from JSON file
+	--version   show cfcc version and exit
 	
 	If no URLs are specified all files are purged.
 	
