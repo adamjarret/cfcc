@@ -31,8 +31,8 @@
     "minimist": "^1.2.0"
   },
   "devDependencies": {
-    "eslint": "^5.7.0",
-    "spooning": "^1.1.0",
-    "spooning-cli": "^1.0.0"
+    "eslint": "^5.16.0",
+    "spooning": "^1.1.2",
+    "spooning-cli": "^1.0.3"
   }
 }
