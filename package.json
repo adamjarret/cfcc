@@ -28,11 +28,11 @@
   "author": "Adam Jarret <adam@atj.me>",
   "license": "MIT",
   "dependencies": {
-    "minimist": "^1.2.0"
+    "argv-walk": "^1.0.3"
   },
   "devDependencies": {
-    "eslint": "^5.16.0",
-    "spooning": "^1.1.2",
-    "spooning-cli": "^1.0.3"
+    "eslint": "^7.2.0",
+    "spooning": "^1.1.3",
+    "spooning-cli": "^1.0.6"
   }
 }
