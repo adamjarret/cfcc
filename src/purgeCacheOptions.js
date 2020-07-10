@@ -2,13 +2,28 @@ const fs = require('fs');
 const path = require('path');
 const walkArgv = require('argv-walk');
 
-const maybeLoadFile = (opts, relTo = '') => !opts.config || !opts.config.length ? opts : (
-    Object.assign(fromFile(path.resolve(relTo, opts.config)), opts)
-);
+function maybeLoadFile(opts, relTo = '') {
+    if (opts.config) {
+        const configPath = path.resolve(relTo, opts.config);
+        if (!opts['if-present'] || fs.existsSync(configPath)) {
+            Object.keys(opts).forEach((key) => {
+                if (opts[key] === undefined) {
+                    delete opts[key];
+                }
+            });
+            return Object.assign(fromFile(configPath), opts);
+        }
+    }
 
-function fromArgv(argv)
-{
-    const options = {};
+    return opts;
+}
+
+function fromArgv(argv) {
+    const options = {
+        email: process.env.CF_EMAIL,
+        token: process.env.CF_TOKEN,
+        zone: process.env.CF_ZONE
+    };
 
     walkArgv(argv, {
         boolean: ['version'],
@@ -16,7 +31,7 @@ function fromArgv(argv)
             if (arg.key) {
                 options[arg.key] = arg.value;
             } else {
-                if(!options.files) {
+                if (!options.files) {
                     options.files = [];
                 }
                 options.files.push(arg.item);
@@ -27,9 +42,8 @@ function fromArgv(argv)
     return maybeLoadFile(options);
 }
 
-function fromFile(filePath)
-{
+function fromFile(filePath) {
     return maybeLoadFile(JSON.parse(fs.readFileSync(filePath)), path.dirname(filePath));
 }
 
-module.exports = {fromArgv, fromFile};
+module.exports = { fromArgv, fromFile };

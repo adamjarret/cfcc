@@ -1,0 +1,10 @@
+{
+    "words": ["Jarret", "linebreak", "newversion", "docblock"],
+    "ignorePaths": [
+        ".git",
+        ".nyc_output",
+        "node_modules",
+        "npm-debug.log",
+        "package-lock.json"
+    ]
+}

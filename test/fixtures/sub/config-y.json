@@ -1,4 +1,4 @@
 {
-  "config": "config-x.json",
-  "zone": "ZONE_Y"
+    "config": "config-x.json",
+    "zone": "ZONE_Y"
 }

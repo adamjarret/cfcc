@@ -1,5 +1,4 @@
-function createResponseHandler(callback)
-{
+function createResponseHandler(callback) {
     return (response) => {
         const data = [];
         response.on('data', (chunk) => data.push(chunk));
@@ -7,8 +6,7 @@ function createResponseHandler(callback)
     };
 }
 
-function handleEnd(responseBody, statusCode, callback)
-{
+function handleEnd(responseBody, statusCode, callback) {
     // Handle CloudFlare API response body
     //  Thanks https://api.cloudflare.com/#getting-started-responses
     try {
@@ -25,8 +23,7 @@ function handleEnd(responseBody, statusCode, callback)
 
         // callback with result
         callback(null, responseResult);
-    }
-    catch (error) {
+    } catch (error) {
         // callback with error if responseBody could not be parsed as JSON
         const e = new Error('Unexpected response');
         e.statusCode = statusCode;
@@ -36,4 +33,4 @@ function handleEnd(responseBody, statusCode, callback)
     }
 }
 
-module.exports = {createResponseHandler, handleEnd};
+module.exports = { createResponseHandler, handleEnd };

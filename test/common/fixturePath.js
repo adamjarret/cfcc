@@ -1,7 +1,6 @@
 const path = require('path');
 
-function fixturePath()
-{
+function fixturePath() {
     return path.resolve(path.join(__dirname, '..', 'fixtures', ...arguments));
 }
 

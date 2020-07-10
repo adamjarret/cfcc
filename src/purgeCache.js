@@ -1,17 +1,20 @@
 const https = require('https');
-const {createResponseHandler} = require('./responseHandler');
+const { createResponseHandler } = require('./responseHandler');
 
-function purgeCache({token, email, zone, files}, callback)
-{
-    if (!token || !token.length) { return callback(new Error('Missing required option: token')); }
-    if (!email || !email.length) { return callback(new Error('Missing required option: email')); }
-    if (!zone || !zone.length) { return callback(new Error('Missing required option: zone')); }
+function purgeCache({ token, email, zone, files }, callback) {
+    if (!token) {
+        return callback(new Error('Missing required option: token'));
+    }
+    if (!email) {
+        return callback(new Error('Missing required option: email'));
+    }
+    if (!zone) {
+        return callback(new Error('Missing required option: zone'));
+    }
 
-    const requestBody = JSON.stringify(files && files.length ? {
-        files: files
-    } : {
-        purge_everything: true
-    });
+    const requestBody = JSON.stringify(
+        files && files.length ? { files: files } : { purge_everything: true }
+    );
 
     const requestOptions = {
         hostname: 'api.cloudflare.com',
@@ -27,7 +30,8 @@ function purgeCache({token, email, zone, files}, callback)
     };
 
     // Send request
-    https.request(requestOptions, createResponseHandler(callback))
+    https
+        .request(requestOptions, createResponseHandler(callback))
         .on('error', callback)
         .end(requestBody);
 }
